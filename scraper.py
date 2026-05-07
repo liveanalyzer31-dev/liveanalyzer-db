@@ -12,6 +12,7 @@ API_KEY      = os.environ.get("APIFOOTBALL_KEY", "")
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 HEADERS    = {"x-apisports-key": API_KEY}
+print(f"API_KEY presente: {'SI' if API_KEY else 'NO — chiave non trovata!'}")
 BASE_URL   = "https://v3.football.api-sports.io"
 LEAGUE_ID  = 135
 SEASON     = 2025
