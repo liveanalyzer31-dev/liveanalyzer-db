@@ -7,8 +7,9 @@ from datetime import datetime
 from supabase import create_client
 
 # ── Configurazione ──────────────────────────────────────────
-SUPABASE_URL = "https://kwwbeejtyuvvlwrjiutk.supabase.co"
-SUPABASE_KEY = "sb_publishable_5gEYrtR03DKsjAMOGijC0A_hj0hUjWZ"
+import os
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://kwwbeejtyuvvlwrjiutk.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "")
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
