@@ -32,7 +32,10 @@ def safe_float(val):
 def get_teams():
     r = requests.get(f"{BASE_URL}/teams", headers=HEADERS,
                      params={"league": LEAGUE_ID, "season": SEASON})
-    return [(t["team"]["id"], t["team"]["name"]) for t in r.json().get("response", [])]
+    data = r.json()
+    print(f"  Status: {r.status_code}")
+    print(f"  Risposta API: {data}")
+    return [(t["team"]["id"], t["team"]["name"]) for t in data.get("response", [])]
 
 def get_last_fixtures(team_id):
     r = requests.get(f"{BASE_URL}/fixtures", headers=HEADERS, params={
