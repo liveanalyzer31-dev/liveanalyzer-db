@@ -14,7 +14,7 @@ supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 HEADERS    = {"x-apisports-key": API_KEY}
 BASE_URL   = "https://v3.football.api-sports.io"
 LEAGUE_ID  = 135
-SEASON     = 2024
+SEASON     = 2025
 
 # ── Helpers ─────────────────────────────────────────────────
 
