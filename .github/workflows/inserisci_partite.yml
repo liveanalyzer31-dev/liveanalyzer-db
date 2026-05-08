@@ -1,0 +1,27 @@
+# Salva questo file in: .github/workflows/inserisci_partite.yml
+
+name: Inserisci partite da JSON
+
+on:
+  workflow_dispatch:  # solo manuale, si avvia dal bottone su GitHub
+
+jobs:
+  inserisci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installa dipendenze
+        run: pip install supabase
+
+      - name: Esegui inserimento
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python insert_json.py
